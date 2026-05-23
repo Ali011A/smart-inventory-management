@@ -1,0 +1,42 @@
+<div class="dashboard-shell">
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p>Quick overview of your inventory operations.</p>
+  </div>
+
+  <mat-card *ngIf="errorMessage" class="error-card">
+    <mat-card-content>
+      {{ errorMessage }}
+    </mat-card-content>
+  </mat-card>
+
+  <div *ngIf="loading" class="loader">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
+
+  <div class="dashboard-grid" *ngIf="!loading && !errorMessage">
+    <mat-card class="dashboard-card">
+      <mat-card-title>Products</mat-card-title>
+      <mat-card-content>
+        <div class="dashboard-value">{{ totals.products }}</div>
+        <div class="dashboard-note">Total active products.</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="dashboard-card">
+      <mat-card-title>Warehouses</mat-card-title>
+      <mat-card-content>
+        <div class="dashboard-value">{{ totals.warehouses }}</div>
+        <div class="dashboard-note">Total warehouse locations.</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="dashboard-card">
+      <mat-card-title>Stock Items</mat-card-title>
+      <mat-card-content>
+        <div class="dashboard-value">{{ totals.stockItems }}</div>
+        <div class="dashboard-note">Unique items currently in stock.</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

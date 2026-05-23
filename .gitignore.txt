@@ -1,0 +1,105 @@
+# =========================
+# .NET / Visual Studio
+# =========================
+
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# =========================
+# ASP.NET Core
+# =========================
+
+appsettings.Development.json
+
+# User Secrets
+secrets.json
+
+# IIS Express
+iisexpress/
+
+# =========================
+# Entity Framework
+# =========================
+
+# Keep migrations tracked
+# Do NOT ignore Migrations folder
+
+# =========================
+# Node / Angular
+# =========================
+
+node_modules/
+dist/
+.angular/
+.cache/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+*.env
+
+# =========================
+# OS Files
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# Test Results
+# =========================
+
+TestResults/
+coverage/
+*.coverage
+*.trx
+
+# =========================
+# Publish Output
+# =========================
+
+publish/
+
+# =========================
+# Temporary Files
+# =========================
+
+*.tmp
+*.temp
+
+# =========================
+# Docker
+# =========================
+
+docker-compose.override.yml
+
+# =========================
+# Frontend Build Artifacts
+# =========================
+
+frontend/smart-inventory-frontend/.angular/
+frontend/smart-inventory-frontend/dist/
+
+# =========================
+# Optional
+# =========================
+
+# Uncomment if needed
+# *.dbmdl
+# *.jfm
+# *.pfx
+# *.publishsettings

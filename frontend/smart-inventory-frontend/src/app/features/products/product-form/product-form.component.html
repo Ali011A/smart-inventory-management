@@ -1,0 +1,53 @@
+<div class="page-header">
+  <div>
+    <h1>{{ isEditMode ? 'Edit Product' : 'Create Product' }}</h1>
+    <p>{{ isEditMode ? 'Update details for this product.' : 'Add a new product to inventory.' }}</p>
+  </div>
+</div>
+
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="productForm.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>SKU</mat-label>
+          <input matInput formControlName="sku" [readonly]="isEditMode" />
+          <mat-error *ngIf="productForm.get('sku')?.hasError('required')">SKU is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput type="number" formControlName="price" />
+          <mat-error *ngIf="productForm.get('price')?.hasError('required')">Price is required</mat-error>
+          <mat-error *ngIf="productForm.get('price')?.hasError('min')">Price must be greater than 0</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <input matInput formControlName="category" />
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="4" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div *ngIf="errorMessage" class="error-alert">{{ errorMessage }}</div>
+
+      <div class="actions-row">
+        <button mat-stroked-button type="button" (click)="cancel()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid || saving">
+          <mat-spinner *ngIf="saving" diameter="20"></mat-spinner>
+          <span *ngIf="!saving">{{ isEditMode ? 'Save' : 'Create' }}</span>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

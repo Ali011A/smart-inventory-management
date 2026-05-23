@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SmartInventoryManagement.API/SmartInventoryManagement.API.csproj" />
+    <Project Path="src/SmartInventoryManagement.Application/SmartInventoryManagement.Application.csproj" />
+    <Project Path="src/SmartInventoryManagement.Domain/SmartInventoryManagement.Domain.csproj" />
+    <Project Path="src/SmartInventoryManagement.Infrastructure/SmartInventoryManagement.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SmartInventoryManagement.Application.Tests/SmartInventoryManagement.Application.Tests.csproj" />
+    <Project Path="tests/SmartInventoryManagement.Domain.Tests/SmartInventoryManagement.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

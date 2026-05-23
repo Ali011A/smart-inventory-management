@@ -1,0 +1,19 @@
+.page-header {
+  margin-bottom: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.error-alert {
+  margin-top: 12px;
+  color: #b00020;
+}

@@ -1,0 +1,15 @@
+﻿<ng-container *ngIf="isAuthenticated$ | async; else authContent">
+  <app-navbar></app-navbar>
+  <div class="app-layout">
+    <app-sidebar></app-sidebar>
+    <main class="app-main">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</ng-container>
+
+<ng-template #authContent>
+  <main class="auth-shell">
+    <router-outlet></router-outlet>
+  </main>
+</ng-template>

@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="app-toolbar">
+  <span class="brand">Smart Inventory</span>
+  <span class="email" *ngIf="userEmail">{{ userEmail }}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="logout()" aria-label="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

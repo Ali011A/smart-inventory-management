@@ -1,0 +1,59 @@
+<div class="page-header">
+  <div>
+    <h1>Inventory Transaction</h1>
+    <p>Record stock movements for products and warehouses.</p>
+  </div>
+</div>
+
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Product</mat-label>
+          <mat-select formControlName="productId">
+            <mat-option *ngFor="let product of products" [value]="product.id">{{ product.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="transactionForm.get('productId')?.hasError('required')">Product is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Warehouse</mat-label>
+          <mat-select formControlName="warehouseId">
+            <mat-option *ngFor="let warehouse of warehouses" [value]="warehouse.id">{{ warehouse.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="transactionForm.get('warehouseId')?.hasError('required')">Warehouse is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of transactionTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Quantity</mat-label>
+          <input matInput type="number" formControlName="quantity" />
+          <mat-error *ngIf="transactionForm.get('quantity')?.hasError('required')">Quantity is required</mat-error>
+          <mat-error *ngIf="transactionForm.get('quantity')?.hasError('min')">Quantity must be at least 1</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Notes</mat-label>
+        <textarea matInput rows="3" formControlName="notes"></textarea>
+      </mat-form-field>
+
+      <div *ngIf="errorMessage" class="error-alert">{{ errorMessage }}</div>
+
+      <div class="actions-row">
+        <button mat-stroked-button type="button" (click)="cancel()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="transactionForm.invalid || saving">
+          <mat-spinner *ngIf="saving" diameter="20"></mat-spinner>
+          <span *ngIf="!saving">Process</span>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
